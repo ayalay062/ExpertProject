@@ -1,0 +1,34 @@
+@use '../general' as *;
+form {
+    max-width: 350px;
+    min-width: 100px;
+    width: 100%;
+    margin: auto
+}
+
+mat-form-field {
+    width: 100%
+}
+
+button {
+    margin: auto;
+}
+
+app-star-rating {
+    margin: 15px;
+    display: inline-block;
+}
+
+mat-label {
+    display: inline-block;
+}
+
+h1 {
+    line-height: 50px;
+    text-align: center;
+    color: #b59435;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    font-size: 32px;
+    font-weight: bold;
+}

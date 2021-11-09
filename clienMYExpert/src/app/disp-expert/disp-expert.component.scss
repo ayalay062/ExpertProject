@@ -1,0 +1,60 @@
+@use '../general' as *;
+body {
+    background-color: $colorE;
+}
+
+#stars {
+    display: inline-block
+}
+
+img {
+    width: 100px;
+    float: left;
+    position: absolute;
+    left: 20px;
+}
+
+mat-card {
+    margin: 20px;
+    text-align: center;
+}
+
+img {
+    width: 55px;
+    float: left;
+}
+
+p {
+    text-align: center;
+}
+
+mat-card {
+    max-width: 850px;
+    min-width: 250px;
+    width: 100%;
+    margin: auto;
+}
+
+#add {
+    float: right;
+}
+
+mat-expansion-panel {
+    min-width: 250px;
+    max-width: 550px;
+    width: 100%;
+    margin: auto;
+    background: repeating-radial-gradient(transparent, #dfbd5d4a);
+}
+
+.mat-expansion-panel-body {
+    display: flex;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 25px;
+}

@@ -1,0 +1,90 @@
+<br><br><br>
+<h1>פגישות</h1>
+
+<br>
+<div style="overflow: auto;
+max-height: 400px;" class="div-outer-wrapper">
+    <mat-table [dataSource]="ListData" matSort>
+        <mat-header-row *matHeaderRowDef="displayedColumns" style=" font-family: 'Rubik', sans-serif; direction: rtl;"></mat-header-row>
+        <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+
+        <ng-container matColumnDef="Options">
+            <mat-header-cell *matHeaderCellDef>עריכה | אשר/בטל</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <!-- איזה id מקבל? -->
+                <!-- <mat-icon class="icon" (click)="onEdit(row.id,false)">launch</mat-icon>
+                <mat-icon class="icon" (click)="onDelete(row.id,false)">delete_outline</mat-icon> -->
+                <button mat-raised-button mat-icon-button matTooltip="שנה זמן" matTooltipPosition="right" (click)="openDialog(row)">
+                <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-raised-button color="primary" [style.backgroundColor]="getButtonColor(row.isApproved)" (click)="changeStatusOfMeeting(row)">{{row.isApproved ? 'בטל' : 'אשר'}}</button>
+
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="isApproved">
+            <mat-header-cell *matHeaderCellDef>סטטוס</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.isApproved? 'הפגישה אושרה':'הפגישה בוטלה'}}</mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="content">
+            <mat-header-cell *matHeaderCellDef>פרטים</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.content}}</mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef>תאריך</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.date | date:"dd/MM/yyyy"}}</mat-header-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="time">
+            <mat-header-cell *matHeaderCellDef>שעה</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.time}}</mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef>נושא</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.title}}</mat-header-cell>
+        </ng-container>
+        <ng-container matColumnDef="user">
+            <mat-header-cell *matHeaderCellDef>משתמש</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">{{element.user}}</mat-header-cell>
+        </ng-container>
+    </mat-table>
+</div>
+
+<!-- 
+<mat-card *ngFor="let m of approvedMeetigns">
+    <mat-card-header>
+        <mat-card-title>
+            נושא השיחה: {{m.title}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{m.userId}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        {{m.date | israelidate}}
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+</mat-card> -->
+
+<!-- <mat-divider></mat-divider> -->
+
+<!-- <mat-card *ngFor="let m of unapprovedMeetings">
+    <mat-card-header>
+        <mat-card-title>
+            נושא השיחה: {{m.title}}
+        </mat-card-title>
+        <mat-card-title>
+            תאריך: {{m.date | israelidate}}
+        </mat-card-title>
+        <mat-card-title>
+            שעה: {{m.time}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-icon-button matTooltip="שנה זמן" matTooltipPosition="right" (click)="openDialog(m)"> <mat-icon>edit</mat-icon></button>
+        <button mat-raised-button color="error" (click)="changeStatusOfMeeting(m)">{{m.isApproved? "בטל":"אשר את הפגישה"}}</button>
+       
+</mat-card-actions>
+</mat-card> -->

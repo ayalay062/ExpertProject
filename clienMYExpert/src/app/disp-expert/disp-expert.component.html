@@ -1,0 +1,57 @@
+<mat-card dir="rtl" *ngIf="expert">
+    <button *ngIf="!currentUserMeeting&&notMe" mat-fab color="warn" id="add" matTooltip="לחץ כאן לקביעת פגישת ייעוץ" (click)="openDialog()">
+        <mat-icon>forum</mat-icon>
+      </button>
+    <!-- פגישה שנקבעה -אם יש -->
+    <mat-expansion-panel hideToggle *ngIf="currentUserMeeting">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                קבעת פגישת ייעוץ עם בעל מקצוע זה
+            </mat-panel-title>
+            <mat-panel-description>
+                <b> ליום &nbsp;</b> {{currentUserMeeting.date | israelidate}} &nbsp; <b> לשעה &nbsp;</b> {{currentUserMeeting.time}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <p><b>נושא:</b> {{currentUserMeeting.title}}</p>
+        <p *ngIf="!currentUserMeeting.isApproved"><strong>בעל המקצוע עדיין לא אישר את בקשתך</strong></p>
+        <p *ngIf="currentUserMeeting.isApproved"><strong>בקשתך אושרה ע"י בעל המקצוע, שים לב לפנות אליו במועד.</strong></p>
+        <button mat-icon-button matTooltip="עריכה" matTooltipPosition="right" (click)="editMeeting()">
+        <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button matTooltip="מחיקה" matTooltipPosition="left" (click)="deleteMeeting()">
+ 
+          <mat-icon>delete</mat-icon>
+        </button>
+    </mat-expansion-panel>
+    <!---->
+
+
+    <img *ngIf="expert.imgUrl" src="https://localhost:5001/Images/{{expert.imgUrl}} ">
+    <img *ngIf="!expert.imgUrl" [src]="alternativePicture ">
+    <h1 style="margin-top: 60px;">{{expert.businessName}}</h1>
+    <h3>{{expert.userName}}</h3>
+    <h4 style="font-size:19px" *ngIf="expert.city">אנו עובדים באזור {{expert.city.name}} ובאזורים נוספים...</h4>
+    <p style="font-size:19px;margin-top:1vh"><b>{{expert.description}}</b></p>
+    <div id="stars" *ngFor="let s of fullStars()" [ngSwitch]="s">
+        <mat-icon *ngSwitchCase="1" style="color:gold">star</mat-icon>
+        <mat-icon *ngSwitchCase="0.5" style="color:gold" dir="rtl">star_half</mat-icon>
+        <mat-icon *ngSwitchCase="0" style="color:gold">star_border</mat-icon>
+    </div>
+    <div style="font-size:19px;text-align: center;" *ngIf="expert.scores"> ממוצע דירוגים: {{expert.scores.toFixed(2)}}</div>
+    <div style="font-size:19px;margin-top:1vh;text-align: center;" *ngIf="notMe && currentUserMeeting">
+        <div class="footer-wrapper">
+            <button mat-raised-button color="customed" (click)="addRecommend()">הוסף/ערוך המלצה לבעל מקצוע זה</button>
+        </div>
+
+        <!-- <a routerLink="add-recommend" (click)="clickedTrue()">הוסף המלצה לבעל מקצוע זה</a>
+        <app-add-recommend></app-add-recommend> -->
+    </div>
+</mat-card>
+
+<!-- <mat-card  *ngIf="not_clicked"><a routerLink='recommends' (click) = "clicked()">ראו המלצות</a></mat-card> -->
+<mat-card class="rec">
+    <a routerLink='recommends' style="font-size:19px" id="seeRecommend" *ngIf="expert&&expert.numRecommends" (click)="clicked()">ראו חוות דעת מ{{expert.numRecommends}} ממליצים</a>
+    <!-- <app-disp-recommends></app-disp-recommends> -->
+
+
+</mat-card>

@@ -1,0 +1,46 @@
+@use '../../general' as *;
+.choose_img {
+    display: none;
+}
+
+mat-card {
+    max-width: 700px;
+    min-width: 350px;
+    width: 100%;
+    margin: auto;
+}
+
+mat-form-field {
+    width: 100%
+}
+
+button {
+    width: 100%
+}
+
+input,
+button,
+select {
+    margin-top: 15px;
+}
+
+.wrapper {
+    // border:3px solid white;
+    background-color: white;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    color: #dfbd5d;
+    border: 2px solid #dfbd5d;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.invalidp {
+    color: red;
+    font-size: smaller;
+    float: right;
+    margin-bottom: -10px;
+}

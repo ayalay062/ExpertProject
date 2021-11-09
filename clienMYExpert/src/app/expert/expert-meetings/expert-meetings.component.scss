@@ -1,0 +1,23 @@
+mat-card {
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-width: 850px;
+    min-width: 250px;
+    width: 100%;
+    direction: rtl;
+}
+
+.mat-card-header {
+    direction: rtl;
+}
+
+h1 {
+    line-height: 50px;
+    text-align: center;
+    color: #b59435;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    font-size: 32px;
+    font-weight: bold;
+}

@@ -1,0 +1,24 @@
+<!-- <p *ngIf="!isRecommended">אין אפשרות להמליץ בלי פגישה קודמת</p> -->
+<!-- <p *ngIf="!isRecommended">אין אפשרות להמליץ פעמיים</p> -->
+<!-- <div *ngIf="isRecommended"> -->
+
+<form dir="rtl" [formGroup]="recommendForm" (ngSubmit)="save_recommend()">
+    <h1> המלצה שלך</h1>
+    <br>
+    <mat-form-field appearance="outline">
+        <mat-label>תמצת את העבודה</mat-label>
+        <input matInput [formControl]="title" autocomplete="none" required (focus)="initSubmitted()">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>תאר חוויה שחוית, רישומים שנותרו בך</mat-label>
+        <textarea matInput [formControl]="content" required></textarea>
+    </mat-form-field>
+    <div id="wrap-stars">
+        <mat-label><i>דרג את בעל המקצוע</i></mat-label>
+        <app-star-rating [rating]="rating" [starCount]="starCount" [color]="starColor" (ratingUpdated)="onRatingChanged($event)"></app-star-rating><br/>
+        <mat-label *ngIf="submitted" id="msg">{{msg}}</mat-label><br/>
+    </div>
+    <div class="footer-wrapper"> <button [mat-dialog-close]="true" mat-raised-button type="submit" color="customed">שמור המלצה</button>
+    </div>
+</form>
+<!-- </div> -->

@@ -1,0 +1,30 @@
+<!-- <mat-paginator #paginator 
+        [length]="length" 
+        [pageIndex]="pageIndex" 
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[3, 6, 9, 12]" 
+        (page)="pageEvent = getServerData($event)">
+</mat-paginator> -->
+<mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)">
+</mat-paginator>
+
+
+
+<mat-card class="admin-card" *ngFor="let expert of allExperts" dir="rtl">
+    <mat-card-header dir="rtl">
+        <mat-card-title dir="rtl">
+            {{expert.businessName}}
+        </mat-card-title>
+        <mat-card-subtitle dir="rtl">
+            {{expert.userName}} | {{getSubjectName(expert.proSubject)}}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <!-- <mat-card-content dir="rtl">
+        {{expert.pro}}
+    </mat-card-content> -->
+    <mat-card-actions>
+        <!-- <mat-slide-toggle (change)="changeStatus(expert.id,$event.checked)" [checked]="expert.enable">בלה</mat-slide-toggle> -->
+        <button mat-raised-button *ngIf="expert.enable" color="off" (click)="changeStatus(expert.id,false)">השבת</button>
+        <button mat-raised-button *ngIf="!expert.enable" color="on" (click)="changeStatus(expert.id,true)">הפעל</button>
+    </mat-card-actions>
+</mat-card>

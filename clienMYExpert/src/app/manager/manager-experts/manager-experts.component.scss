@@ -1,0 +1,37 @@
+@use '../../general' as *; 
+
+mat-card{
+    margin:auto;
+    margin-top: 15px;
+background: linear-gradient(to bottom, #ffefda,transparent);
+max-width: 850px;
+min-width:250px;
+width:100%;
+}
+.off{
+    background-color: red($color: #ff66662d) !important;
+}
+.on{
+    background-color: green($color: #6cc25673) !important;
+}
+.mat-card-title{
+    font-size: 25px;
+text-align: right;
+
+}
+.mat-card-subtitle{
+    font-size: 16px;
+    margin-top: 8px;
+    text-align: right;
+
+}
+/* active tab */
+// ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+//     color:red;
+//     background-color: green;
+//     }
+    
+    /* ink bar */
+    ::ng-deep .mat-ink-bar {
+    background-color: var(--primary-color,rgb(255, 204, 93)) !important;
+    }

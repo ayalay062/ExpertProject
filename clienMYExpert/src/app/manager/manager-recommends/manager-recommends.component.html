@@ -1,0 +1,35 @@
+<!-- <mat-paginator #paginator 
+        [length]="length" 
+        [pageIndex]="pageIndex" 
+        [pageSize]="pageSize"
+        [pageSizeOptions]="[3, 6, 9, 12]" 
+        (page)="pageEvent = getServerData($event)">
+</mat-paginator>
+ -->
+<mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize" [pageIndex]="currentPage" (page)="handlePage($event)">
+</mat-paginator>
+
+<mat-card class="admin-card" *ngFor="let r of recommends">
+    <mat-card-header dir="rtl">
+        <mat-card-title dir="rtl">ממליץ: <strong *ngIf="r.user"> {{r.user.userName}} </strong> | בעל מקצוע: <strong *ngIf="r.expert">{{r.expert.firstName + ' ' + r.expert.lastName}} </strong></mat-card-title>
+    </mat-card-header>
+    <mat-card-content dir="rtl">
+        <p dir="rtl"><strong>כותרת: </strong>{{r.title}}</p>
+        <p dir="rtl"><strong>תוכן: </strong> {{r.content}}</p>
+        <!-- <p><strong>ניקוד: </strong>{{r.stars}}</p> -->
+
+        <div id="stars" *ngFor="let s of fullStars(r.stars)" [ngSwitch]="s">
+            <mat-icon *ngSwitchCase="1" style="color:gold">star</mat-icon>
+            <mat-icon *ngSwitchCase="0.5" style="color:gold">star_half</mat-icon>
+            <mat-icon *ngSwitchCase="0" style="color:gold">star_border</mat-icon>
+        </div>
+
+
+        <p><strong>בתאריך: </strong>{{r.date_posted | israelidate}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+
+        <button mat-raised-button color="primary" [style.backgroundColor]="getButtonColor(r.isApproved)" (click)="changeStatus(r)">{{r.isApproved ? 'מאושר' : 'אשר'}}</button>
+
+    </mat-card-actions>
+</mat-card>

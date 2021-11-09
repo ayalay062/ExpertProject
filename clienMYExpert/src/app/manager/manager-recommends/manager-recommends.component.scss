@@ -1,0 +1,45 @@
+@use '../../general' as *;
+.mat-card {
+    margin: auto;
+    margin-top: 15px;
+    background: linear-gradient(to bottom, #ffefda, transparent);
+    max-width: 850px;
+    min-width: 250px;
+    width: 100%;
+}
+
+.mat-card-content {
+    margin: 0 16;
+    text-align: right;
+    margin-right: 1.6vw;
+    font-size: 17px;
+}
+
+#stars {
+    display: inline-block
+}
+
+// .mat-card-footer{
+//     margin-top: -20px;
+// }
+.mat-card-title {
+    margin-top: 1vh;
+    ;
+}
+
+.mat-card-header {
+    text-align: right;
+}
+
+// button{
+//     margin-left: 1vw;
+//     height: 37px;
+//     margin-top: 14vh;
+//     font-size: 16px;
+//     text-align: center;
+//     margin-top: 0vw;
+//     margin-bottom: 1vw;
+// }
+// mat-card-header-text{
+//     text-align: right;
+// }

@@ -1,0 +1,54 @@
+<div class="temp">
+
+
+    <div class="head-wrapper">
+
+        <div class="logo"></div>
+        <div *ngIf="!user" class="greetGuest">שלום אורח</div>
+        <div class="greetUser" *ngIf="user">
+            <p *ngIf="user.userType && user.userType==1"><b class="greetUserMsg">שלום, {{user.userName}}</b></p>
+            <div *ngIf="user.userType && user.userType==2" class="menu-wrapper">
+                <mat-menu #menu="matMenu" [overlapTrigger]="false" dir="rtl">
+                    <button mat-menu-item><a class="link" routerLink="/expertInfo/{{user.id}}/profile"> פרופיל</a></button>
+                    <button mat-menu-item> <a class="link" routerLink="/expertInfo/{{user.id}}/meetings">הזמנות ופגישות</a></button>
+                </mat-menu>
+                <button mat-fab class="bprofile" *ngIf="user.imgUrl" [matMenuTriggerFor]="menu" [matTooltip]="user.userName" matTooltipPosition="left" [style.backgroundImage]="'url('+envApi+'/Images/'+user.imgUrl+')'"></button>
+                <button mat-fab class="bprofile" *ngIf="!user.imgUrl" [matMenuTriggerFor]="menu" [matTooltip]="user.userName" matTooltipPosition="left" [style.backgroundImage]="'url(http://turag.co.il/wp-content/uploads/2018/06/man.jpg)'"></button>
+            </div>
+        </div>
+
+
+        <div class="sub_header">
+            <nav class="navbar navbar-expand-sm ">
+                <ul class="nav nav-bills nav-justified">
+                    <li class="nav-item" *ngIf="!user">
+                        <button mat-raised-button color="header">
+                    <a class="nav-link" routerLink="/signup/sign-up-user">הרשם</a>
+                </button>
+                    </li>
+                    <li class="nav-item" *ngIf="!user">
+                        <button mat-raised-button color="header">
+                    <a class="nav-link" routerLink="/login">כניסה</a>
+                </button>
+                    </li>
+                    <li class="nav-item" *ngIf="user">
+                        <button mat-raised-button color="header" (click)="logOut()">
+                    <a class="nav-link">יציאה</a>
+                </button>
+                    </li>
+                    <li class="nav-item">
+                        <button mat-raised-button color="header">
+                    <a class="nav-link" routerLink="/experts">בעלי מקצוע</a>
+                </button>
+                    </li>
+                    <li class="nav-item" *ngIf="user&&user.userType==3">
+                        <button mat-raised-button color="header">
+                    <a class="nav-link" routerLink="/manager-settings">ניהול נתונים</a>
+                </button>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>

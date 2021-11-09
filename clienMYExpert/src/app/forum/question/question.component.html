@@ -1,0 +1,22 @@
+<form dir="rtl" [formGroup]="questionForm" (ngSubmit)="save_question()">
+    <h1 class="input" >הזן את פרטי השאלה שלך</h1>
+<mat-form-field class="input" appearance="outline" >
+    <mat-label>כותרת</mat-label>
+    <input matInput [formControl]="title">
+</mat-form-field><br/>
+<mat-form-field class="input"  appearance="outline" >
+    <mat-label>תוכן</mat-label>
+    <textarea class="input" matInput [formControl]="content"></textarea>
+</mat-form-field><br/>
+    <mat-form-field>
+        <input type="text" class="input" placeholder="תחום שאלה" matInput [formControl]="categorySelect"
+            [matAutocomplete]="category">
+        <mat-autocomplete #category="matAutocomplete">
+            <mat-option *ngFor="let c of categories | async" [value]="c">
+                {{c}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+<br/>
+<button mat-button color="warn" type="submit" >שלח</button>
+</form>

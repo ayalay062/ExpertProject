@@ -1,0 +1,134 @@
+<div class="form-group form wrapper" dir="rtl">
+    <p><b>מלא את פרטיך</b></p>
+    <div class="row">
+        <div class="form-group col-6">
+            <input id="0" type="text" placeholder="*שם פרטי" class="form-control" required="required" [(ngModel)]="expert.firstName" [class.invalid]="validationArr[0]" (blur)="check()" />
+            <label class="invalidp" *ngIf="validationArr[0]">הכנס שם פרטי</label>
+        </div>
+        <div class="form-group col-6">
+            <input id="1" type="text" placeholder="*שם משפחה" class="form-control" required="required" [(ngModel)]="expert.lastName" [class.invalid]="validationArr[1]" (blur)="check()" />
+            <label class="invalidp" *ngIf="validationArr[1]">הכנס שם משפחה</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <input id="2" type="text" placeholder="שם משתמש*" class="form-control" [(ngModel)]="expert.userName" [class.invalid]="validationArr[2]" (blur)="check()" />
+            <label class="invalidp" *ngIf="validationArr[2]">הכנס שם משתמש </label>
+        </div>
+        <div class="form-group col-6">
+
+            <input id="3" name="password" type="password" placeholder="סיסמה*" required="required" [(ngModel)]="expert.userPassword" class="form-control" [class.invalid]="validationArr[3]" (blur)="check()">
+            <label class="invalidp" *ngIf="validationArr[3]">הכנס סיסמה בין 5 ל-10 תווים</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <input id="4" type="email" placeholder="*כתובת מייל" class="form-control" required="required" [(ngModel)]="expert.email" [class.invalid]="validationArr[4]" (blur)="check()" />
+            <label class="invalidp" *ngIf="validationArr[4]">הכנס כתובת מייל</label>
+        </div>
+        <div class="form-group col-6">
+            <input id="5" name="phone" type="tel" placeholder="*פלאפון" class="form-control" required="required" [(ngModel)]="expert.phone" [class.invalid]="validationArr[5]" (blur)="check()" />
+            <label class="invalidp" *ngIf="validationArr[5]"> הכנס פלאפון תקין </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-6">
+            <input id="6" list="cityId" class="form-control" placeholder="בחר עיר" required="required" [(ngModel)]='currentCity' name="cityId" [class.invalid]="validationArr[6]" (blur)="check()" ngDefaultControl/>
+            <label class="invalidp" *ngIf="validationArr[6]">בחר עיר מהרשימה</label>
+            <datalist id="cityId">
+        <option *ngFor = "let c of allCities" [value] = "c.name">
+    </datalist>
+        </div>
+        <div class="form-group col-6">
+            <input id="7" type="text" list="prof" class="form-control" placeholder="תחום התמקצעות" required="required" [(ngModel)]='currentSubject' name="field" [class.invalid]="validationArr[7]" (blur)="check()" ngDefaultControl />
+            <label class="invalidp" *ngIf="validationArr[7]">בחר תחום מהרשימה</label>
+            <datalist id="prof">
+        <option *ngFor="let s of allSubjects" [value]="s.subName">{{s.subName}}</option>
+
+    </datalist>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="form-group col-6">
+            <input id="8" type="text" placeholder="שם חברה" class="form-control" [(ngModel)]="expert.businessName" [class.invalid]="validationArr[8]" (blur)="check()" />
+            <label class="invalidp" *ngIf="validationArr[8]">הכנס שם חברה </label>
+
+        </div>
+        <div class="form-group col-6">
+            <input id="9" type="text" placeholder="תאור" class="form-control" [(ngModel)]="expert.description" [class.invalid]="validationArr[9]" (blur)="check()" />
+            <label class="invalidp" *ngIf="validationArr[9]">הכנס תאור קצר על תחום העיסוק שלך</label>
+        </div>
+
+    </div>
+
+    <div class="row" style="padding:0px 10px;">
+
+        <div class="col-6 custom-file-upload-wrapper">
+            <label class="custom-file-upload" for="uploadImg">
+    <mat-icon>insert_drive_file</mat-icon>
+    <input type="file"/>
+    Upload file
+</label>
+            <div class="custom-file-upload-name-wrapper">
+                <label class="custom-file-upload-name" *ngIf="fileName1">{{fileName1}}</label>
+                <label class="custom-file-upload-name" *ngIf="!fileName1">No file selected</label>
+            </div>
+        </div>
+
+        <input style="color:#310166;" type="file" (change)="createFormData($event)" id="uploadImg">
+        <div class="form-group col-6">
+            <img *ngIf="expert.imgUrl" class="img_box" height="150" width="150" src="{{envApi}}/Images/{{expert.imgUrl}} ">
+        </div>
+
+    </div>
+    <br>
+
+    <div class="footer-wrapper "> <button class="btn btn-outline-secondary btn-block " (click)="save() ">שמור</button></div>
+
+</div>
+
+<!-- 
+
+
+
+<mat-card>
+    <form dir="rtl " *ngIf="allCities " [formGroup]="detailsForm " (ngSubmit)="saveDetails() ">
+
+        <mat-form-field appearance="outline " disabled="true ">
+            <mat-label>שם בעל עסק</mat-label>
+            <input matInput formControlName="name ">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline " disabled="true ">
+            <mat-label>סיסמא לאתר</mat-label>
+            <input matInput autocomplete="none " formControlName="password ">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline ">
+            <mat-label>שם העסק</mat-label>
+            <input matInput formControlName="businessName " autocomplete="none ">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline " disabled="true ">
+            <mat-label>פרוט</mat-label>
+            <textarea matInput formControlName="description "></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline ">
+            <input type="text " placeholder="עיר " matInput formControlName="city " [matAutocomplete]="city ">
+            <mat-autocomplete #city="matAutocomplete ">
+                <mat-option *ngFor="let city of filteredCities | async " [value]="city ">
+                    {{city}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <div>
+            <input type="file " (change)="createFormData($event) ">
+        </div>
+
+       
+<button mat-raised-button type="submit " color="customed ">שמור פרטים</button>
+</form>
+</mat-card> -->

@@ -1,0 +1,214 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* Importing Bootstrap SCSS file. */
+
+@import '~bootstrap/scss/bootstrap';
+* {
+    font-family: Calibri, 'Segue-UI', sans-serif !important;
+}
+
+mat-icon {
+    font-family: 'Material Icons' !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+body,
+html {
+    margin: 0;
+    overflow-x: hidden;
+    background-image: url("https://image.freepik.com/free-vector/background-elegant-white-texture_23-2148438405.jpg");
+}
+
+.swal2-html-container {
+    text-align: center!important;
+}
+
+.logo {
+    background-image: url('assets/images/logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 150px!important;
+    margin-right: 20px;
+    margin-top: 3px;
+    position: absolute;
+}
+
+.bg {
+    /* The image used */
+    // background-image: url("~/assets/bg.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Display & Opacity */
+    position: relative;
+    opacity: 0.65;
+}
+
+.body-content,
+.body-content-large {
+    padding: 40px 20px;
+    position: absolute;
+    width: 30%;
+    right: 5%;
+    top: 10%;
+    background: rgba(255, 255, 255, 0.6);
+    height: 90%;
+    text-align: center;
+    direction: rtl;
+    color: #000000;
+}
+
+.body-content-large {
+    padding: 30px 20px;
+    width: 70%;
+}
+
+.form-content .row {
+    margin: 0px;
+}
+
+.form-content input {
+    border: none;
+}
+
+.form-content span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+body,
+body p,
+body div,
+body label {
+    text-align: right;
+    direction: rtl;
+}
+
+.footer-wrapper {
+    text-align: center;
+    width: 100%;
+}
+
+.admin-card.mat-card>.mat-card-actions:last-child {
+    position: absolute;
+    left: 50px;
+    top: 10px;
+}
+
+.admin-card.mat-card {
+    // background: linear-gradient(to top, #dfbd5d, transparent)!important;
+    // min-width: 500px;
+    // font-weight: bold;
+    background: white!important;
+    min-width: 600px;
+    box-shadow: 0 0 8px 2px #dfbd5d;
+    margin-bottom: 5px !important;
+}
+
+.rec-card.mat-card {
+    background: transparent!important;
+    min-width: 600px;
+    box-shadow: 0 0 8px 2px #dfbd5d;
+    .mat-card-header-text {
+        margin: 0 0;
+    }
+    p.date-p {
+        float: left;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    }
+}
+
+button.mat-menu-item {
+    width: 100%!important;
+    text-align: right!important;
+    margin: auto!important;
+    color: #dfbd5d!important;
+    a {
+        color: #dfbd5d!important;
+    }
+}
+
+.cdk-overlay-connected-position-bounding-box {
+    width: 170px !important;
+}
+
+.mat-table:not(table) {
+    max-width: 80%;
+    margin: 20px auto;
+}
+
+.mat-table:not(table) .mat-row,
+.mat-table:not(table) .mat-header-row,
+.mat-table:not(table) .mat-footer-row {
+    flex-direction: row-reverse !important;
+}
+
+.div-outer-wrapper .mat-table .mat-row,
+.div-outer-wrapper .mat-table .mat-header-row {
+    height: 38px !important;
+    min-height: 38px !important;
+    line-height: 38px !important;
+}
+
+.div-outer-wrapper .mat-table .mat-header-row .mat-header-cell {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid;
+    display: inline-block;
+    padding: 2px 0px 0px 2px;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: small;
+    width: 100px;
+}
+
+.custom-file-upload .mat-icon {
+    vertical-align: middle;
+    font-size: 18px;
+    margin-top: 4px;
+    margin-right: -5px;
+}
+
+.custom-file-upload-name {
+    font-size: 10px!important;
+    padding: 0 0 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90px;
+    vertical-align: bottom;
+}
+
+.custom-file-upload-wrapper {
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.custom-file-upload-name-wrapper {
+    max-width: 100px;
+    display: inline-block;
+}

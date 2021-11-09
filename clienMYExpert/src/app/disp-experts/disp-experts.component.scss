@@ -1,0 +1,64 @@
+@use '../general' as *;
+.exp {
+    background-color: $colorB;
+    padding: 10px;
+    margin: 15px 25px;
+    height: 100px;
+}
+
+.picture {
+    width: 9vw;
+    height: 8vw;
+    background-color: $colorD;
+    float: $r;
+}
+
+.details {
+    width: 90vw;
+    position: $pos;
+}
+
+#stars {
+    display: inline-block
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.mat-card {
+    margin: 20px 20vw;
+    // background:linear-gradient(#daf3ff,white);
+    background: linear-gradient(#f3f0f3, white);
+    text-align: right;
+    height: 17vh;
+}
+
+.mat-card-title {
+    font-size: 26px;
+}
+
+.mat-card-subtitle {
+    font-size: 18px;
+    margin-top: -4px;
+}
+
+.mat-card-content {
+    font-size: 19px;
+    text-align: right;
+    margin-right: 3vw;
+    margin-right: 9vw;
+    margin-top: -6vh;
+}
+
+.mat-card-avatar {
+    height: 111px;
+    width: 93px;
+    border-radius: 0;
+}

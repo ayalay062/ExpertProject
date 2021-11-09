@@ -1,0 +1,22 @@
+input,
+button,
+select {
+    margin-top: 15px;
+}
+
+.wrapper {
+    // border:3px solid white;
+    background-color: white;
+    padding: 20px;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+.invalidp {
+    color: red;
+    font-size: smaller;
+    float: right;
+    margin-bottom: -10px;
+}

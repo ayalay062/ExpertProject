@@ -1,0 +1,78 @@
+<div class="row" dir="rtl">
+    <!-- קטגוריות -->
+    <div class="col-2">
+        <mat-form-field>
+            <input type="text" placeholder="חפש לפי קטגוריה" matInput [formControl]="categorySelect" [matAutocomplete]="category">
+            <mat-autocomplete #category="matAutocomplete" (optionSelected)="getChildren()">
+                <mat-option *ngFor="let c of filteredCategories | async" [value]="c">
+                    {{c}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+    <!-- מקצועות -->
+    <div class="col-2">
+        <mat-form-field>
+            <input type="text" placeholder="חפש לפי מקצוע" matInput [formControl]="subjectSelect" [matAutocomplete]="subject">
+            <mat-autocomplete #subject="matAutocomplete">
+                <mat-option *ngFor="let s of filteredSubjects | async" [value]="s">
+                    {{s}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+    <!-- ערים -->
+    <div class="col-2">
+        <mat-form-field>
+            <input type="text" placeholder="חפש לפי עיר" matInput [formControl]="citySelect" [matAutocomplete]="city">
+            <mat-autocomplete #city="matAutocomplete">
+                <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+                    {{city}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+    <!-- שמות -->
+    <div class="col-2" dir="rtl">
+        <mat-form-field appearance="legacy" dir="rtl">
+            <mat-label dir="rtl">חפש לפי שם</mat-label>
+            <input matInput [(ngModel)]='searchName' (focus)="clearName()" dir="rtl" type="text" name="namefield" ngDefaultControl>
+        </mat-form-field>
+    </div>
+    <div class="col-3">
+        <button mat-raised-button color="customed" (click)="filter();">סנן</button>
+        <button mat-stroked-button color="customed" (click)="clear();">נקה חיפוש</button>
+    </div>
+</div>
+
+<mat-card *ngFor="let x of allexperts">
+    <a routerLink="/expert/{{x.id}}" dir="rtl">
+        <mat-card-header dir="rtl">
+            <mat-card-title dir="rtl">{{x.firstName}} {{x.lastName}} | {{x.city? x.city.name:''}}</mat-card-title>
+            <mat-card-subtitle dir="rtl"><b>{{getSubjectName(x.proSubject)}}</b></mat-card-subtitle>
+
+            <img mat-card-avatar *ngIf="x.imgUrl" src="{{envApi}}/Images/{{x.imgUrl}} " width="120" height="150">
+            <img mat-card-avatar *ngIf="!x.imgUrl" [src]="alternativePicture " width="120" height="150">
+            <!-- <div id="stars" *ngFor="let s of fullStars()" [ngSwitch]="s">
+                <mat-icon *ngSwitchCase="1" style="color:gold">star</mat-icon>
+                <mat-icon *ngSwitchCase="0.5" style="color:gold" dir="rtl">star_half</mat-icon>
+                <mat-icon *ngSwitchCase="0" style="color:gold">star_border</mat-icon>
+            </div> -->
+
+
+            <!-- http://turag.co.il/wp-content/uploads/2018/06/man.jpg -->
+        </mat-card-header>
+        <mat-card-content>
+            <div id="stars" *ngFor="let s of fullStars(x.scores)" [ngSwitch]="s">
+                <mat-icon *ngSwitchCase="1" style="color:gold">star</mat-icon>
+                <mat-icon *ngSwitchCase="0.5" style="color:gold" dir="rtl">star_half</mat-icon>
+                <mat-icon *ngSwitchCase="0" style="color:gold">star_border</mat-icon>
+            </div>
+        </mat-card-content>
+    </a>
+</mat-card>
+
+
+<mat-card *ngIf="notFound">
+    <mat-card-subtitle>.אין תוצאות התואמות את הערך שחיפשת</mat-card-subtitle>
+</mat-card>

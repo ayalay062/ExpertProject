@@ -1,0 +1,177 @@
+$default:auto;
+$colorA:lightblue;
+$colorB:lightgreen;
+$colorC:lightgray;
+$colorD:lightpink;
+$colorE:lightsalmon;
+$colorF:lightyellow;
+$colorG:#e2a1ff;
+$pos:absolute;
+$r:right;
+$l:left;
+$scroll:scroll;
+$noscroll:hidden;
+
+/*@use '../general' as *;*/
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+}
+
+ ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: rgb(255, 136, 0) !important;
+}
+
+ ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: rgb(255, 207, 161)!important;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-hover .mat-form-field-outline-thick {
+    color: #8b6e50!important;
+}
+
+ ::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: #b59435 !important;
+    ;
+}
+
+// customed button design
+.mat-button.mat-customed,
+.mat-stroked-button.mat-customed {
+    margin: 5px;
+    color: #b59435;
+    text-shadow: 1px 1px 0px black;
+}
+
+.mat-button.mat-customed:hover,
+.mat-stroked-button.mat-customed:hover {
+    background-color: rgb(255, 255, 239);
+}
+
+.mat-raised-button.mat-customed,
+.mat-flat-button.mat-customed,
+.mat-fab.mat-customed,
+.mat-mini-fab.mat-customed {
+    color: white;
+    background-color: #b59435;
+    text-shadow: 0px 1px 2px black;
+}
+
+.mat-icon-button.mat-customed {
+    color: lightgoldenrodyellow
+}
+
+// header button design
+.mat-button.mat-header,
+.mat-stroked-button.mat-header {
+    margin: 5px;
+    color: #b59435;
+    // text-shadow: 1px 1px 0px black;
+}
+
+.mat-button.mat-header:hover,
+.mat-stroked-button.mat-header:hover {
+    background-color: #ffffef66;
+}
+
+.mat-raised-button.mat-header,
+.mat-flat-button.mat-header,
+.mat-fab.mat-header,
+.mat-mini-fab.mat-header {
+    color: black;
+    background-color: transparent;
+    font-weight: bold;
+    margin: 8px 10px;
+    color: white;
+    box-shadow: none;
+    border: 1px solid white;
+    border-radius: 0;
+    padding: 0px 20px;
+    line-height: 60px; //   text-shadow: 0px 1px 2px black;
+}
+
+.mat-icon-button.mat-header {
+    color: lightgoldenrodyellow
+}
+
+button:focus {
+    outline: none;
+}
+
+//red button design
+.mat-button.mat-off,
+.mat-stroked-button.mat-off {
+    margin: 5px;
+    color: #b59435;
+    text-shadow: 1px 1px 0px black;
+}
+
+.mat-button.mat-off:hover,
+.mat-stroked-button.mat-off:hover {
+    background-color: rgb(255, 255, 239);
+}
+
+.mat-raised-button.mat-off,
+.mat-flat-button.mat-off,
+.mat-fab.mat-off,
+.mat-mini-fab.mat-off {
+    color: white;
+    background-color: #f90600b3;
+    text-shadow: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.mat-icon-button.mat-off {
+    color: lightgoldenrodyellow
+}
+
+//green button design
+.mat-button.mat-on,
+.mat-stroked-button.mat-on {
+    margin: 5px;
+    color: #b59435;
+    text-shadow: 1px 1px 0px black;
+}
+
+.mat-button.mat-on:hover,
+.mat-stroked-button.mat-on:hover {
+    background-color: rgb(255, 255, 239);
+}
+
+.mat-raised-button.mat-on,
+.mat-flat-button.mat-on,
+.mat-fab.mat-on,
+.mat-mini-fab.mat-on {
+    background-color: #00ff0c;
+    text-shadow: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.mat-icon-button.mat-on {
+    color: lightgoldenrodyellow
+}
+
+.mat-flat-button.mat-primary[disabled],
+.mat-flat-button.mat-accent[disabled],
+.mat-flat-button.mat-warn[disabled],
+.mat-flat-button[disabled][disabled],
+.mat-raised-button.mat-primary[disabled],
+.mat-raised-button.mat-accent[disabled],
+.mat-raised-button.mat-warn[disabled],
+.mat-raised-button[disabled][disabled],
+.mat-fab.mat-primary[disabled],
+.mat-fab.mat-accent[disabled],
+.mat-fab.mat-warn[disabled],
+.mat-fab[disabled][disabled],
+.mat-mini-fab.mat-primary[disabled],
+.mat-mini-fab.mat-accent[disabled],
+.mat-mini-fab.mat-warn[disabled],
+.mat-mini-fab[disabled][disabled] {
+    background-color: rgba(0, 0, 0, .12);
+}
