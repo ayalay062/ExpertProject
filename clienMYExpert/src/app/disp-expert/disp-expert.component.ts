@@ -94,7 +94,12 @@ export class DispExpertComponent implements OnInit {
     this.experts.getById(expId).subscribe(
       (res: Expert) => {
         this.expert = res;
-        this.cityString = this.cityService.getCityById(this.expert.cityId).name;
+        if (this.expert.cityId) {
+          var cityName = this.cityService.getCityById(this.expert.cityId);
+          if (cityName) {
+            this.cityString = cityName.name;
+          }
+        }
       },
       (err) => {
         console.log(err);
@@ -137,6 +142,7 @@ export class DispExpertComponent implements OnInit {
     this.meetingService.findUserMeeting(id, expId).subscribe(
       (res: Meeting) => {
         if (res) {
+          console.log(res);
           this.currentUserMeeting = res;
         }
       },

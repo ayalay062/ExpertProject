@@ -75,7 +75,7 @@ namespace ProjectAPI
             // services.AddTransient<StartupHostedService>(new StartupHostedService());
             //services.AddSingleton<StartupHostedService>();
 
-            services.AddSingleton<IHostedService, StartupHostedService>();
+         //   services.AddSingleton<IHostedService, StartupHostedService>();
 
 
     //        services
@@ -104,7 +104,7 @@ namespace ProjectAPI
         RequestPath = "/Images"
     });
 
-            app.UseHttpsRedirection();
+      //      app.UseHttpsRedirection();
 
             app.UseRouting();
 

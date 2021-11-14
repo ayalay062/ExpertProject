@@ -13,6 +13,6 @@ namespace Project.DAL
         Expert AddExpert(Expert ex);
         Expert UpdateExpert(Expert ex);
 
-        //List<Expert> GetExpertsByPage(int skip, int limit);
+        List<Expert> GetAllActiveExperts();
     }
 }

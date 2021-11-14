@@ -28,6 +28,20 @@ namespace Project.DAL
                 throw;
             }
         }
+
+          public List<Expert> GetAllActiveExperts()
+        {
+            try
+            {
+                var Experts = _expertContext.Experts.Where(x=>x.enable).Include("Subject").Include("City").ToList();
+                return Experts;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public List<Expert> GetExpertsByPage(int skip, int limit)
         {
             try

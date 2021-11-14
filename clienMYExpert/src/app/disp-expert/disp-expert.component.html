@@ -26,7 +26,7 @@
     <!---->
 
 
-    <img *ngIf="expert.imgUrl" src="https://localhost:5001/Images/{{expert.imgUrl}} ">
+    <img *ngIf="expert.imgUrl" src="http://localhost:5000/Images/{{expert.imgUrl}} ">
     <img *ngIf="!expert.imgUrl" [src]="alternativePicture ">
     <h1 style="margin-top: 60px;">{{expert.businessName}}</h1>
     <h3>{{expert.userName}}</h3>

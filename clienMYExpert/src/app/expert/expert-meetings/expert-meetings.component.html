@@ -19,9 +19,18 @@ max-height: 400px;" class="div-outer-wrapper">
                 </button>
                 <button mat-raised-button color="primary" [style.backgroundColor]="getButtonColor(row.isApproved)" (click)="changeStatusOfMeeting(row)">{{row.isApproved ? 'בטל' : 'אשר'}}</button>
 
+
+
+
             </mat-cell>
         </ng-container>
-
+        <ng-container matColumnDef="sendInvite">
+            <mat-header-cell *matHeaderCellDef>שלח מייל להמלצה</mat-header-cell>
+            <mat-header-cell *matCellDef="let element">
+                <button mat-raised-button mat-icon-button matTooltip="שנה זמן" matTooltipPosition="right" (click)="inviteRecommend(element)">
+                <mat-icon>email</mat-icon>
+                </button></mat-header-cell>
+        </ng-container>
         <ng-container matColumnDef="isApproved">
             <mat-header-cell *matHeaderCellDef>סטטוס</mat-header-cell>
             <mat-header-cell *matCellDef="let element">{{element.isApproved? 'הפגישה אושרה':'הפגישה בוטלה'}}</mat-header-cell>

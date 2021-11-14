@@ -46,9 +46,8 @@ export class SignUpUserComponent implements OnInit {
     this.user.userType=1;
     this.userService.post(this.user).subscribe(
       (res) => {
-        this.user.id = res.insertId;
-        Swal.fire('הי','נרשמת בהצלחה','success');
-      
+        this.user = res;
+        Swal.fire('הי','נרשמת בהצלחה','success');    
         localStorage.setItem('user', JSON.stringify(this.user));
         this.router.navigate(['/experts']);
       },

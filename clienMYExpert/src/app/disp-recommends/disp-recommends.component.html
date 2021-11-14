@@ -2,39 +2,26 @@
 <mat-card *ngIf="notFound">
     <mat-card-subtitle>אין עדיין המלצות להציג.</mat-card-subtitle>
 </mat-card>
+<div style="    max-height: 500px;    overflow-y: auto;">
+    <mat-card class="rec-card" *ngFor="let r of recommends">
 
-<mat-card class="rec-card" *ngFor="let r of recommends">
-
-    <mat-card-header dir="rtl">
-        <mat-card-title dir="rtl">ממליץ: <strong *ngIf="r.user"> {{r.user.userName}} </strong></mat-card-title>
-    </mat-card-header>
-    <mat-card-content dir="rtl">
-        <p dir="rtl"><strong>כותרת: </strong>{{r.title}}</p>
-        <p dir="rtl"><strong>תוכן: </strong> {{r.content}}</p>
-        <!-- <p style="display: inline-block;"><strong>ניקוד: </strong>
+        <mat-card-header dir="rtl">
+            <mat-card-title dir="rtl">ממליץ: <strong *ngIf="r.user"> {{r.user.userName}} </strong></mat-card-title>
+        </mat-card-header>
+        <mat-card-content dir="rtl">
+            <p dir="rtl"><strong>כותרת: </strong>{{r.title}}</p>
+            <p dir="rtl"><strong>תוכן: </strong> {{r.content}}</p>
+            <!-- <p style="display: inline-block;"><strong>ניקוד: </strong>
 
         </p> -->
-        <div id="stars" *ngFor="let s of fullStars(r)" [ngSwitch]="s">
-            <mat-icon *ngSwitchCase="1" style="color:gold">star</mat-icon>
-            <mat-icon *ngSwitchCase="0.5" style="color:gold">star_half</mat-icon>
-            <mat-icon *ngSwitchCase="0" style="color:gold">star_border</mat-icon>
-        </div>
-        <p class="date-p"><strong>בתאריך: </strong>{{r.date_posted | israelidate}}</p>
-    </mat-card-content>
+            <div id="stars" *ngFor="let s of fullStars(r)" [ngSwitch]="s">
+                <mat-icon *ngSwitchCase="1" style="color:gold">star</mat-icon>
+                <mat-icon *ngSwitchCase="0.5" style="color:gold">star_half</mat-icon>
+                <mat-icon *ngSwitchCase="0" style="color:gold">star_border</mat-icon>
+            </div>
+            <p class="date-p"><strong>בתאריך: </strong>{{r.date_posted | israelidate}}</p>
+        </mat-card-content>
 
 
-    <!-- 
-    <mat-card-header dir="rtl">
-        <mat-card-title dir="rtl">ממליץ: <strong *ngIf="r.user"> {{r.user.userName}} </strong> | בעל מקצוע: <strong *ngIf="r.expert">{{r.expert.firstName + ' ' + r.expert.lastName}} </strong></mat-card-title>
-    </mat-card-header>
-    <mat-card-header style="direction:ltr">
-        <p style="direction:rtl">{{r.date_posted | israelidate}}</p>
-    </mat-card-header>
-    <mat-card-header dir="rtl">
-        <mat-card-title dir="rtl"><strong>  {{r.title}} </strong></mat-card-title>
-
-    </mat-card-header>
-    <mat-card-content dir="rtl">
-        <p dir="rtl" class="content">"{{r.content}}"</p>
-    </mat-card-content> -->
-</mat-card>
+    </mat-card>
+</div>

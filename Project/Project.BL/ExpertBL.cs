@@ -72,9 +72,23 @@ namespace Project.BL {
 
         //    var date = _expertDAL.GetExpertsByPage(skip, limit);
         //}
+        public List<ExpertDTO> GetAllActiveExperts () {
 
+            var experts = _expertDAL.GetAllActiveExperts ();
+            var lExperts = new List<ExpertDTO> ();
+            foreach (var e in experts) {
+                var exD = _mapper.Map<Expert, ExpertDTO> (e);
+                exD.scores = _recDAL.GetAvgRecommendsByExpertId (exD.id);
+                exD.numRecommends = _recDAL.GetCountRecommendsByExpertId (exD.id);
+
+                lExperts.Add (exD);
+
+            }
+            return lExperts.OrderByDescending (x => x.scores).ToList ();
+
+        }
         public List<ExpertDTO> GetFilteredExperts (int category, int subject, int city, string name) {
-            var experts = _expertDAL.GetAllExperts ();
+            var experts = _expertDAL.GetAllActiveExperts ();
             var lExperts = new List<ExpertDTO> ();
             foreach (var e in experts) {
                 if (e.enable == false) continue;
@@ -123,8 +137,7 @@ namespace Project.BL {
             return _mapper.Map<Expert, ExpertDTO> (expRes);
         }
 
-        bool IExpertBL.uploadImg(int id, string filename)
-        {
+        bool IExpertBL.uploadImg (int id, string filename) {
             var ex = _expertDAL.GetExpertById (id);
             ex.imgUrl = filename;
             _expertDAL.UpdateExpert (ex);

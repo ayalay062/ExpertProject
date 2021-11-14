@@ -10,6 +10,7 @@ import { AddMeetingComponent } from 'src/app/add-meeting/add-meeting.component';
 import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/app/classes/user';
 import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-expert-meetings',
   templateUrl: './expert-meetings.component.html',
@@ -28,7 +29,8 @@ export class ExpertMeetingsComponent implements OnInit {
   lData: Meeting[];
   displayedColumns: string[] = [
     'Options',
-'isApproved',
+    'sendInvite',
+   'isApproved',
     'content',
     'time',
     'date',
@@ -65,7 +67,13 @@ export class ExpertMeetingsComponent implements OnInit {
     let color: string = isApproved ?   'red':'green';
     return color;
   }
+  inviteRecommend(meet: Meeting){
 
+    this.meetingService.inviteRecommend(meet).subscribe((x)=>{
+     // this.loadMeetings();
+     Swal.fire('','המייל נשלח בהצלחה!','success')
+    });
+  }
   loadMeetings() {
     this.meetingService.getMeetingsForExpert(this.exId).subscribe(
       (res: Meeting[]) => {

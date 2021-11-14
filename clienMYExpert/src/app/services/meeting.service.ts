@@ -31,7 +31,11 @@ export class MeetingService {
   approveMeeting(meet: Meeting): Observable<Meeting> {
     return this.http.post<Meeting>(this.url + 'ApproveMeeting', meet);
   }
-
+   
+  inviteRecommend(meet: Meeting): Observable<Meeting> {
+    return this.http.post<Meeting>(this.url + 'InviteRecommend', meet);
+  }
+  
   cancelMeeting(meet: Meeting): Observable<Meeting> {
     return this.http.post<Meeting>(this.url + 'CancelMeeting', meet);
   }

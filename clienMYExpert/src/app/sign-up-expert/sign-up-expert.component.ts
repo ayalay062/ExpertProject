@@ -26,6 +26,7 @@ export class SignUpExpertComponent implements OnInit {
   companyName: string;
   description: string;
   validationArr: boolean[] = [];
+  user: any;
   constructor(
     private userService: UsersService,
     private cityService: CitiesService,
@@ -60,21 +61,23 @@ export class SignUpExpertComponent implements OnInit {
     this.expertService.signup(this.expert).subscribe(
       (res) => {
         Swal.fire('הי','נרשמת בהצלחה','success');
-        console.log(res);
-        this.expert.id = res.insertId;
-        localStorage.setItem('user', JSON.stringify(this.expert));
-        this.router.navigate(['/expertInfo/' + this.expert.id + '/profile']);
-        this.userService.getLoggedInName.emit(
-          new User(
-            this.expert.id,
-            this.expert.userName,
-            this.expert.userPassword,
-            this.expert.email,
-            this.expert.cityId,
-            2,
-            this.expert.imgUrl
-          )
-        );
+        this.user = res;
+        this.userService.getLoggedInName.emit(this.user);
+        localStorage.setItem("user", JSON.stringify(this.user));   
+        this.router.navigateByUrl("/expertInfo/"+this.user.id+ '/profile');
+
+        // this.router.navigate(['/expertInfo/' + this.expert.id + '/profile']);
+        // this.userService.getLoggedInName.emit(
+        //   new User(
+        //     this.expert.id,
+        //     this.expert.userName,
+        //     this.expert.userPassword,
+        //     this.expert.email,
+        //     this.expert.cityId,
+        //     2,
+        //     this.expert.imgUrl
+        //   )
+        // );
       },
       (err) => console.log(err)
     );

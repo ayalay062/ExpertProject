@@ -120,6 +120,11 @@ body label {
     margin-bottom: 5px !important;
 }
 
+.mat-progress-spinner.mat-accent circle,
+.mat-spinner.mat-accent circle {
+    stroke: #dfbd5d!important;
+}
+
 .rec-card.mat-card {
     background: transparent!important;
     min-width: 600px;
@@ -145,10 +150,9 @@ button.mat-menu-item {
     }
 }
 
-.cdk-overlay-connected-position-bounding-box {
-    width: 170px !important;
-}
-
+// .cdk-overlay-connected-position-bounding-box {
+//     width: 170px !important;
+// }
 .mat-table:not(table) {
     max-width: 80%;
     margin: 20px auto;

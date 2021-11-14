@@ -10,6 +10,8 @@
             <div *ngIf="user.userType && user.userType==2" class="menu-wrapper">
                 <mat-menu #menu="matMenu" [overlapTrigger]="false" dir="rtl">
                     <button mat-menu-item><a class="link" routerLink="/expertInfo/{{user.id}}/profile"> פרופיל</a></button>
+                    <!-- <button mat-menu-item><a class="link" (click)="inviteReccomends();"> שלח תזכורת להמלצה</a></button> -->
+
                     <button mat-menu-item> <a class="link" routerLink="/expertInfo/{{user.id}}/meetings">הזמנות ופגישות</a></button>
                 </mat-menu>
                 <button mat-fab class="bprofile" *ngIf="user.imgUrl" [matMenuTriggerFor]="menu" [matTooltip]="user.userName" matTooltipPosition="left" [style.backgroundImage]="'url('+envApi+'/Images/'+user.imgUrl+')'"></button>
